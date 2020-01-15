@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.baeldung.multipledb.dao.product.ProductRepository;
 import com.baeldung.multipledb.dao.user.PossessionRepository;
 import com.baeldung.multipledb.dao.user.UserRepository;
-import com.baeldung.multipledb.model.product.ProductMultipleDB;
+import com.baeldung.multipledb.model.product.Product;
 import com.baeldung.multipledb.model.user.PossessionMultipleDB;
 import com.baeldung.multipledb.model.user.UserMultipleDB;
 
@@ -85,7 +84,7 @@ public class JpaMultipleDBIntegrationTest {
     @Test
     @Transactional("productTransactionManager")
     public void whenCreatingProduct_thenCreated() {
-        ProductMultipleDB product = new ProductMultipleDB();
+        Product product = new Product();
         product.setName("Book");
         product.setId(2);
         product.setPrice(20);
